@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private float verticalVelocity;
 
-    void Start()
+    private void Start()
     {
         CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
 
@@ -32,10 +32,17 @@ public class PlayerController : MonoBehaviour
         controller.skinWidth = 0.02f;
         controller.stepOffset = 0.3f;
         controller.slopeLimit = 60f;
+
+        if (!CompareTag("Player"))
+        {
+            tag = "Player";
+        }
     }
 
-    void Update()
+    private void Update()
     {
+        if (controller == null) return;
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 

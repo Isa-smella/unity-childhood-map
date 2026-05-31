@@ -12,7 +12,7 @@ public class LookoutPointTrigger : MonoBehaviour
     public Transform telescopeViewPoint;
     public Transform telescopePivot;
 
-    public PlayerController playerController;
+    public MonoBehaviour playerController;
 
     [Range(0f, 1f)]
     public float normalFogAlpha = 1f;
@@ -141,8 +141,6 @@ public class LookoutPointTrigger : MonoBehaviour
         {
             cameraFollow.StopOverrideView();
         }
-
-        // 不重置 currentYaw，保留望远镜偏移角度
     }
 
     private void HandleTelescopeRotation()
